@@ -12,6 +12,6 @@ Sources of information
 
 Sources of information are listed bellow. Please be aware of the fact, that the following literature list is far away from being complete. So you should take a look into the first reference since it is a master piece of information.
 
- - the **official Oracle JavaEE** tutorial: http://docs.oracle.com/javaee/7/tutorial/doc/home.htm or as PDF http://docs.oracle.com/javaee/7/tutorial/doc/javaeetutorial7.pdf (980 p.)
- - https://glassfish.java.net/docs/4.0/application-development-guide.pdf (252 p.)
- - https://glassfish.java.net/docs/4.0/application-deployment-guide.pdf (216 p.)
+ - the **official Oracle JavaEE** tutorial: http://docs.oracle.com/javaee/7/tutorial/doc/home.htm or as PDF http://docs.oracle.com/javaee/7/tutorial/doc/javaeetutorial7.pdf (980 pages)
+ - https://glassfish.java.net/docs/4.0/application-development-guide.pdf (252 pages)
+ - https://glassfish.java.net/docs/4.0/application-deployment-guide.pdf (216 pages)
