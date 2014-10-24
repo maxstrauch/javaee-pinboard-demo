@@ -1,11 +1,11 @@
 JavaEE Pinboard Demo
 ==
 
-This project is a simple demo project to demonstrate the basic workflow of creating JavaEE applications using NetBeans IDE and GlassFish 4. It features a very simple pinboard which contains notes. Although there can be more than one pinboard, e.g. for different topics.
+This project is a simple demo project to demonstrate the basic workflow of creating JavaEE applications using NetBeans IDE and GlassFish 4. It features a very simple pinboard which contains notes. Although there can be more than one pinboard, e.g. for different topics. See the data model and use case diagram for further information.
 
 Installation
 ===
-Quite simple: open the project using Netbeans and open the "required" EJB and WAR projects. Next create a new Derby database. Then you need to create a connection pool and a JDBC resource in the administration console (http://localhost:4848/). Finally create a "Persistence Unit" (persistence.xml) in the project. Now you are ready to go.
+Quite simple: open the project using Netbeans and open the "required" EJB and WAR projects. More information on how to create the database configuration can be found in the file `create-db-tutorial.pdf`.
 
 Sources of information
 ===
