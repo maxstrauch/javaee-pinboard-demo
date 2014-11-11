@@ -6,9 +6,10 @@
 
 package de.pinboard.to;
 
-import java.util.Date;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import de.pinboard.persistence.entites.AbstractEntity;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -28,5 +29,17 @@ public abstract class AbstractTO {
     }
     
         
+    public static final <T extends AbstractTO, R extends AbstractEntity> T convert(R entity) {
+        return (T) entity.getTO();
+    }
+    
+    public static final <T extends AbstractTO, R extends AbstractEntity> List<T> convert(Collection<R> entities) {
+        List<T> all = new ArrayList<>();
+        for (R entity : entities) {
+            all.add((T) entity.getTO());
+        }
+        return all;
+    }
+    
     
 }

@@ -13,15 +13,21 @@ import javax.ejb.Remote;
 
 /**
  *
- * @author akaibel
+ * @author maximilianstrauch
  */
 @Remote
 public interface PinboardLogic {
     
+    public boolean addPinboard(PinboardTO to);
+    
+    public boolean deletePinboard(long id);
+    
+    public void addNote(long pinboardId, NoteTO to);
+    
+    public boolean deleteNote(long id);
+    
     public List<PinboardTO> getPinboards();
     
-    public boolean createPinboard(PinboardTO pinboard);
-    
-    public void createNote(long pinboardId, NoteTO note);
+    public List<NoteTO> getNotes(long pinboardId);
     
 }

@@ -7,7 +7,9 @@ You can download the entire repo by just following this link: https://github.com
 
 Installation
 ===
-Quite simple: open the project using Netbeans and open the "required" EJB and WAR projects. More information on how to create the database configuration can be found in the file `create-db-tutorial.pdf`.
+Very simple: open the project using Netbeans and open the "required" EJB and WAR projects. More information on how to create the database configuration can be found in the file `create-db-tutorial.pdf`.
+
+A login page is already created to ensure that only authenticated users can browse through the application. In order to get this mechanism working, one needs to uncomment the lines 44 to 64 in the `web.xml` file. In the GlassFish administration console (`http://localhost:4848/`) under `Configuration > server-config > Security > Realms > file > Edit users` one can modify the users list. You can also create an other realm and connect it by placing its name in line 46 in the `web.xml`.
 
 Sources of information
 ===

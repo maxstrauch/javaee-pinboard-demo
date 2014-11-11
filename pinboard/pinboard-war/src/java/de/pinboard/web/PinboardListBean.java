@@ -1,25 +1,32 @@
 package de.pinboard.web;
 
 
+import de.pinboard.logic.PinboardLogic;
+import de.pinboard.to.PinboardTO;
 import java.io.Serializable;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
- * @author akaibel
+ * @author maximilianstrauch
  */
 @SessionScoped
 @Named
 public class PinboardListBean implements Serializable {
     
-    private String name = "Hallo";
+    @EJB
+    private PinboardLogic pinboardLogic;
+    
+    @Inject
+    private PinboardNotesBean pinboardNotesBean;
+    
+    private String name;
 
     public String getName() {
         return name;
@@ -29,8 +36,36 @@ public class PinboardListBean implements Serializable {
         this.name = name;
     }
     
-    public void doSth() {
-        System.out.println("Hallo");
+    public List<PinboardTO> getPinboards() {
+        return pinboardLogic.getPinboards();
+    }
+    
+    public void createNewPinboard() {
+        PinboardTO to = new PinboardTO();
+        to.setTitle(name);
+        
+        boolean created = pinboardLogic.addPinboard(to);
+        
+        FacesContext
+                .getCurrentInstance()
+                .addMessage(null, 
+                        new FacesMessage(
+                                created ? 
+                                    "Neue Pinnwand \"" + name + "\" wurde angelegt." :
+                                    "Fehler beim Anlegen der neuen Pinnwand!"
+                        )
+                );
+        
+        name = "";
+    }
+    
+    public void deletePinboard(PinboardTO pinboard) {
+        pinboardLogic.deletePinboard(pinboard.getId());
+    }
+    
+    public String openPinboard(PinboardTO pinboard) {
+        pinboardNotesBean.setPinboard(pinboard);
+        return "notes";
     }
     
 }
